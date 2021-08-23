@@ -96,5 +96,5 @@ class Flow(Distribution):
         Returns:
             A `Tensor` of shape [batch_size, ...], the noise.
         """
-        noise, _ = self._transform(inputs, context=self._embedding_net(context))
-        return noise
+        noise, logdet = self._transform(inputs, context=self._embedding_net(context))
+        return noise, logdet
